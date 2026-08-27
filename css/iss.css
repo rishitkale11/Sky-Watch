@@ -1,0 +1,40 @@
+.iss-layout{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.iss-layout .map-frame{
+  border:none;
+  border-radius:0;
+  height:min(65vh, 560px);
+}
+#iss-map{width:100%;height:100%;background:#0B0F1A;}
+
+.iss-telemetry{
+  border:none;
+  border-radius:0;
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+}
+.telem-head{
+  font-size:0.75rem;
+  letter-spacing:0.12em;
+  color:var(--ignition);
+  margin-bottom:1.4rem;
+}
+.telem-row{
+  display:flex;
+  justify-content:space-between;
+  padding:0.7rem 0;
+  border-bottom:1px solid var(--line);
+}
+.telem-label{font-size:0.78rem;color:var(--ink-dim);}
+.telem-val{font-size:0.9rem;color:var(--telemetry);}
+.telem-foot{font-size:0.68rem;color:var(--ink-faint);}
+
+@media (max-width:880px){
+  .iss-layout{grid-template-columns:1fr;}
+}

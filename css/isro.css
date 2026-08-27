@@ -1,0 +1,49 @@
+.timeline{
+  position:relative;
+  padding-left:clamp(2rem, 6vw, 4rem);
+  border-left:1px solid var(--line);
+}
+.tl-entry{
+  position:relative;
+  padding-bottom:4rem;
+}
+.tl-entry:last-child{padding-bottom:0;}
+.tl-entry::before{
+  content:"";
+  position:absolute;
+  left:calc(-1 * clamp(2rem, 6vw, 4rem) - 5px);
+  top:0.4rem;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--ignition);
+}
+.tl-year{
+  font-family:var(--f-mono);
+  font-size:0.85rem;
+  color:var(--ignition);
+  letter-spacing:0.08em;
+  margin-bottom:0.5rem;
+  display:block;
+}
+.tl-entry h3{
+  font-size:var(--step-2);
+  margin-bottom:0.7rem;
+}
+.tl-entry p{
+  color:var(--ink-dim);
+  max-width:60ch;
+  font-size:0.95rem;
+}
+.tl-tag{
+  display:inline-block;
+  margin-top:0.9rem;
+  font-family:var(--f-mono);
+  font-size:0.65rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--telemetry);
+  border:1px solid var(--line);
+  padding:0.3em 0.7em;
+  border-radius:2px;
+}
