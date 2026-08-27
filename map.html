@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Map — SkyWatch</title>
+<meta name="description" content="An interactive world map. Click anywhere on Earth for live conditions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+
+<div id="hud">
+  <div class="wrap">
+    <div class="hud-group">
+      <span class="hud-item"><span class="dot"></span> SYSTEM NOMINAL</span>
+      <span class="hud-item mono" id="hud-page">WORLD MAP</span>
+    </div>
+    <div class="hud-group secondary">
+      <span class="hud-item mono" id="hud-day">T+0</span>
+      <span class="hud-item mono" id="hud-utc">00:00:00 UTC</span>
+      <span class="hud-item mono" id="hud-local">00:00:00 LOCAL</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> SKYWATCH</a>
+    <nav class="primary">
+      <a href="forecast.html">Forecast</a>
+      <a href="map.html">World Map</a>
+      <a href="aircraft.html">Aircraft Radar</a>
+      <a href="iss.html">ISS Tracker</a>
+      <a href="isro.html">ISRO Missions</a>
+      <a href="launches.html">Launch Countdown</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow reveal in">MODULE 02 / CARTOGRAPHY</p>
+      <h1 class="page-title reveal in">WORLD MAP<span class="ignite">.</span></h1>
+      <p class="page-sub reveal in">Click anywhere on Earth to drop a pin and pull live conditions for that exact point.</p>
+    </div>
+  </section>
+
+  <section class="section--tight map-section">
+    <div class="wrap">
+      <div class="map-frame panel reveal in">
+        <div id="leaflet-map"></div>
+        <div id="map-readout" class="map-readout mono">
+          <span class="map-readout-title">NO PIN DROPPED</span>
+          <span class="map-readout-sub">Click the map to sample a point</span>
+        </div>
+      </div>
+      <p class="map-hint mono">TIP: SCROLL TO ZOOM · DRAG TO PAN · CLICK TO SAMPLE A POINT</p>
+    </div>
+  </section>
+
+  <section class="section section--tight crosslink">
+    <div class="wrap crosslink-inner reveal">
+      <div>
+        <p class="eyebrow">GO DEEPER</p>
+        <h3>Get the full 7-day breakdown for this spot.</h3>
+      </div>
+      <a href="forecast.html" class="btn">Open Forecast →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;"><span class="dot"></span> SKYWATCH</div>
+        <p style="color:var(--ink-dim); font-size:0.85rem; max-width:30ch;">
+          A live tracking dashboard for everything moving through the sky.
+        </p>
+      </div>
+      <div>
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="forecast.html">7-Day Forecast</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="aircraft.html">Aircraft Radar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Space</h5>
+        <ul>
+          <li><a href="iss.html">ISS Tracker</a></li>
+          <li><a href="isro.html">ISRO Missions</a></li>
+          <li><a href="launches.html">Launch Countdown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>System</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><span class="mono" style="color:var(--ink-dim);">Map: OpenStreetMap</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SKYWATCH</span>
+      <span class="mono">MAP TILES: CARTO / OSM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>

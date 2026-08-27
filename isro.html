@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISRO Mission Timeline — SkyWatch</title>
+<meta name="description" content="A timeline of the Indian Space Research Organisation's key missions, from Aryabhata to Gaganyaan.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/isro.css">
+</head>
+<body>
+
+<div id="hud">
+  <div class="wrap">
+    <div class="hud-group">
+      <span class="hud-item"><span class="dot"></span> SYSTEM NOMINAL</span>
+      <span class="hud-item mono" id="hud-page">ISRO MISSIONS</span>
+    </div>
+    <div class="hud-group secondary">
+      <span class="hud-item mono" id="hud-day">T+0</span>
+      <span class="hud-item mono" id="hud-utc">00:00:00 UTC</span>
+      <span class="hud-item mono" id="hud-local">00:00:00 LOCAL</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> SKYWATCH</a>
+    <nav class="primary">
+      <a href="forecast.html">Forecast</a>
+      <a href="map.html">World Map</a>
+      <a href="aircraft.html">Aircraft Radar</a>
+      <a href="iss.html">ISS Tracker</a>
+      <a href="isro.html">ISRO Missions</a>
+      <a href="launches.html">Launch Countdown</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow reveal in">MODULE 05 / HERITAGE</p>
+      <h1 class="page-title reveal in">ISRO MISSIONS<span class="ignite">.</span></h1>
+      <p class="page-sub reveal in">From a satellite named after a 5th-century mathematician to a lander on the Moon's south pole — the Indian Space Research Organisation's defining missions.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="timeline" id="timeline">
+        <!-- timeline entries injected by JS from a structured dataset -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight crosslink">
+    <div class="wrap crosslink-inner reveal">
+      <div>
+        <p class="eyebrow">WHAT'S NEXT</p>
+        <h3>See the missions still ahead of us, counting down.</h3>
+      </div>
+      <a href="launches.html" class="btn">See Launch Countdowns →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;"><span class="dot"></span> SKYWATCH</div>
+        <p style="color:var(--ink-dim); font-size:0.85rem; max-width:30ch;">
+          A live tracking dashboard for everything moving through the sky.
+        </p>
+      </div>
+      <div>
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="forecast.html">7-Day Forecast</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="aircraft.html">Aircraft Radar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Space</h5>
+        <ul>
+          <li><a href="iss.html">ISS Tracker</a></li>
+          <li><a href="isro.html">ISRO Missions</a></li>
+          <li><a href="launches.html">Launch Countdown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>System</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><span class="mono" style="color:var(--ink-dim);">Source: ISRO public archive</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SKYWATCH</span>
+      <span class="mono">MISSION DATA: ISRO.GOV.IN</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/isro.js"></script>
+</body>
+</html>

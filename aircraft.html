@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aircraft Radar — SkyWatch</title>
+<meta name="description" content="Live flight radar showing thousands of aircraft in the air right now.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/aircraft.css">
+</head>
+<body>
+
+<div id="hud">
+  <div class="wrap">
+    <div class="hud-group">
+      <span class="hud-item"><span class="dot"></span> SYSTEM NOMINAL</span>
+      <span class="hud-item mono" id="hud-page">AIRCRAFT RADAR</span>
+    </div>
+    <div class="hud-group secondary">
+      <span class="hud-item mono" id="hud-day">T+0</span>
+      <span class="hud-item mono" id="hud-utc">00:00:00 UTC</span>
+      <span class="hud-item mono" id="hud-local">00:00:00 LOCAL</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> SKYWATCH</a>
+    <nav class="primary">
+      <a href="forecast.html">Forecast</a>
+      <a href="map.html">World Map</a>
+      <a href="aircraft.html">Aircraft Radar</a>
+      <a href="iss.html">ISS Tracker</a>
+      <a href="isro.html">ISRO Missions</a>
+      <a href="launches.html">Launch Countdown</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow reveal in">MODULE 03 / AIR TRAFFIC</p>
+      <h1 class="page-title reveal in">AIRCRAFT RADAR<span class="ignite">.</span></h1>
+      <p class="page-sub reveal in">Thousands of aircraft, tracked in real time, anywhere in the world.</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="radar-frame panel reveal in">
+        <iframe
+          title="Live flight radar"
+          src="https://www.flightradar24.com/simple_index.php?z=4"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <p class="map-hint mono">LIVE EMBED — IF THE RADAR DOESN'T LOAD, YOUR NETWORK MAY BE BLOCKING THIRD-PARTY EMBEDS</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>How to read it</h2>
+        <p>The radar updates continuously from public ADS-B transponder data broadcast by aircraft worldwide.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-card reveal">
+          <span class="mono info-index">01</span>
+          <h3>Color</h3>
+          <p>Aircraft are typically colored by altitude band — lower colors for aircraft on approach, brighter for cruise altitude.</p>
+        </div>
+        <div class="info-card reveal">
+          <span class="mono info-index">02</span>
+          <h3>Trails</h3>
+          <p>The thin line behind each aircraft icon is its recent ground track — useful for spotting holding patterns near busy airports.</p>
+        </div>
+        <div class="info-card reveal">
+          <span class="mono info-index">03</span>
+          <h3>Click to inspect</h3>
+          <p>Click any aircraft icon directly on the radar for its flight number, origin, destination, speed, and altitude.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight crosslink">
+    <div class="wrap crosslink-inner reveal">
+      <div>
+        <p class="eyebrow">UP NEXT</p>
+        <h3>Above the air traffic, the ISS keeps orbiting.</h3>
+      </div>
+      <a href="iss.html" class="btn">Track ISS →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;"><span class="dot"></span> SKYWATCH</div>
+        <p style="color:var(--ink-dim); font-size:0.85rem; max-width:30ch;">
+          A live tracking dashboard for everything moving through the sky.
+        </p>
+      </div>
+      <div>
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="forecast.html">7-Day Forecast</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="aircraft.html">Aircraft Radar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Space</h5>
+        <ul>
+          <li><a href="iss.html">ISS Tracker</a></li>
+          <li><a href="isro.html">ISRO Missions</a></li>
+          <li><a href="launches.html">Launch Countdown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>System</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><span class="mono" style="color:var(--ink-dim);">Radar: Flightradar24</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SKYWATCH</span>
+      <span class="mono">FLIGHT DATA: FLIGHTRADAR24.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/core.js"></script>
+</body>
+</html>

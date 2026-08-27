@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyWatch — Live Sky &amp; Space Tracking</title>
+<meta name="description" content="SkyWatch tracks everything overhead: weather, aircraft, the ISS, and rocket launches — in one live dashboard.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+<!-- HUD -->
+<div id="hud">
+  <div class="wrap">
+    <div class="hud-group">
+      <span class="hud-item"><span class="dot"></span> SYSTEM NOMINAL</span>
+      <span class="hud-item mono" id="hud-page">HOME</span>
+    </div>
+    <div class="hud-group secondary">
+      <span class="hud-item mono" id="hud-day">T+0</span>
+      <span class="hud-item mono" id="hud-utc">00:00:00 UTC</span>
+      <span class="hud-item mono" id="hud-local">00:00:00 LOCAL</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> SKYWATCH</a>
+    <nav class="primary">
+      <a href="forecast.html">Forecast</a>
+      <a href="map.html">World Map</a>
+      <a href="aircraft.html">Aircraft Radar</a>
+      <a href="iss.html">ISS Tracker</a>
+      <a href="isro.html">ISRO Missions</a>
+      <a href="launches.html">Launch Countdown</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <canvas class="starfield"></canvas>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow reveal in">LIVE GLOBAL TRACKING NETWORK</p>
+      <h1 class="hero-title reveal in">
+        EVERYTHING<br>
+        OVERHEAD<span class="ignite">.</span>
+      </h1>
+      <p class="hero-sub reveal in">
+        Weather, aircraft, the space station, and the next rocket off the pad —
+        one dashboard, tracking the sky in real time.
+      </p>
+      <div class="hero-cta reveal in">
+        <a href="map.html" class="btn btn--solid">Open Live Map →</a>
+        <a href="launches.html" class="btn">Next Launch</a>
+      </div>
+    </div>
+    <div class="hero-scroll mono">SCROLL <span>↓</span></div>
+  </section>
+
+  <!-- ============ STATUS STRIP ============ -->
+  <section class="status-strip">
+    <div class="wrap status-grid">
+      <div class="status-cell reveal">
+        <span class="status-label mono">ISS ALTITUDE</span>
+        <span class="status-value mono" id="stat-iss-alt">408 km</span>
+      </div>
+      <div class="status-cell reveal">
+        <span class="status-label mono">ISS VELOCITY</span>
+        <span class="status-value mono">7.66 km/s</span>
+      </div>
+      <div class="status-cell reveal">
+        <span class="status-label mono">AIRCRAFT TRACKED</span>
+        <span class="status-value mono">~9,000+</span>
+      </div>
+      <div class="status-cell reveal">
+        <span class="status-label mono">NEXT LAUNCH</span>
+        <span class="status-value mono" id="stat-next-launch">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODULE GRID ============ -->
+  <section class="section modules">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Six systems.<br>One sky.</h2>
+        <p>Every module feeds the same dashboard. Pick a thread and pull it.</p>
+      </div>
+
+      <div class="module-grid">
+
+        <a href="forecast.html" class="module-card reveal">
+          <span class="module-index mono">01</span>
+          <h3>7-Day Forecast</h3>
+          <p>Real forecast cards with live weather icons, hourly charts, and conditions for any city on Earth.</p>
+          <span class="module-link mono">Open Forecast →</span>
+        </a>
+
+        <a href="map.html" class="module-card reveal">
+          <span class="module-index mono">02</span>
+          <h3>Interactive World Map</h3>
+          <p>A full interactive globe — pan, zoom, and drop a pin anywhere to pull live local conditions.</p>
+          <span class="module-link mono">Open Map →</span>
+        </a>
+
+        <a href="aircraft.html" class="module-card reveal">
+          <span class="module-index mono">03</span>
+          <h3>Live Aircraft Radar</h3>
+          <p>Real-time flight radar embed showing thousands of aircraft in the air across the globe right now.</p>
+          <span class="module-link mono">Open Radar →</span>
+        </a>
+
+        <a href="iss.html" class="module-card reveal">
+          <span class="module-index mono">04</span>
+          <h3>ISS Live Tracker</h3>
+          <p>The International Space Station's current position, ground track, and orbit — updated continuously.</p>
+          <span class="module-link mono">Track ISS →</span>
+        </a>
+
+        <a href="isro.html" class="module-card reveal">
+          <span class="module-index mono">05</span>
+          <h3>ISRO Mission Timeline</h3>
+          <p>A scroll-through history of India's Space Research Organisation, from Aryabhata to Gaganyaan.</p>
+          <span class="module-link mono">View Timeline →</span>
+        </a>
+
+        <a href="launches.html" class="module-card reveal">
+          <span class="module-index mono">06</span>
+          <h3>Launch Countdowns</h3>
+          <p>Live countdown clocks for upcoming orbital launches from agencies and companies worldwide.</p>
+          <span class="module-link mono">See Countdowns →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BIG STATEMENT BAND ============ -->
+  <section class="statement">
+    <div class="wrap">
+      <p class="statement-text reveal">
+        The sky isn't empty. It's <span class="ignite">9,000 aircraft</span>,
+        one space station moving at <span class="ignite">7.66&nbsp;km/s</span>,
+        weather systems thousands of kilometers wide, and a rocket
+        somewhere counting down to zero.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD PREVIEW ============ -->
+  <section class="section dash-preview">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Built like<br>mission control.</h2>
+        <p>A dashboard layout designed for glancing, not reading — built mobile-first, app-style.</p>
+      </div>
+      <div class="dash-frame reveal">
+        <div class="dash-frame-bar">
+          <span></span><span></span><span></span>
+          <span class="mono dash-frame-title">skywatch://dashboard</span>
+        </div>
+        <div class="dash-frame-body">
+          <div class="dash-tile dash-tile--lg">
+            <span class="mono dash-tile-label">ISS GROUND TRACK</span>
+            <div class="dash-orbit-demo"><div class="dash-orbit-dot"></div></div>
+          </div>
+          <div class="dash-tile">
+            <span class="mono dash-tile-label">LOCAL CONDITIONS</span>
+            <strong class="dash-tile-big mono">27°C</strong>
+            <span class="mono dash-tile-sub">Clear · Pune</span>
+          </div>
+          <div class="dash-tile">
+            <span class="mono dash-tile-label">NEXT WINDOW</span>
+            <strong class="dash-tile-big mono" id="dash-mini-countdown">--:--:--</strong>
+            <span class="mono dash-tile-sub">T-minus to liftoff</span>
+          </div>
+          <div class="dash-tile dash-tile--wide">
+            <span class="mono dash-tile-label">AIRCRAFT IN VIEW</span>
+            <div class="dash-blips">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing">
+    <canvas class="starfield"></canvas>
+    <div class="wrap closing-inner reveal">
+      <h2>Start tracking.</h2>
+      <p>No sign-up. No app store. Just the sky, live.</p>
+      <a href="map.html" class="btn btn--solid">Launch Dashboard →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;"><span class="dot"></span> SKYWATCH</div>
+        <p style="color:var(--ink-dim); font-size:0.85rem; max-width:30ch;">
+          A live tracking dashboard for everything moving through the sky — weather, aircraft, satellites, and rockets.
+        </p>
+      </div>
+      <div>
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="forecast.html">7-Day Forecast</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="aircraft.html">Aircraft Radar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Space</h5>
+        <ul>
+          <li><a href="iss.html">ISS Tracker</a></li>
+          <li><a href="isro.html">ISRO Missions</a></li>
+          <li><a href="launches.html">Launch Countdown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>System</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" class="mono">Status: Nominal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SKYWATCH — BUILT FOR THE OPEN SKY</span>
+      <span id="hud-day-foot" class="mono">T+0</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

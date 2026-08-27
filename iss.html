@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISS Tracker — SkyWatch</title>
+<meta name="description" content="Live position of the International Space Station, updated continuously.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/iss.css">
+</head>
+<body>
+
+<div id="hud">
+  <div class="wrap">
+    <div class="hud-group">
+      <span class="hud-item"><span class="dot"></span> SYSTEM NOMINAL</span>
+      <span class="hud-item mono" id="hud-page">ISS TRACKER</span>
+    </div>
+    <div class="hud-group secondary">
+      <span class="hud-item mono" id="hud-day">T+0</span>
+      <span class="hud-item mono" id="hud-utc">00:00:00 UTC</span>
+      <span class="hud-item mono" id="hud-local">00:00:00 LOCAL</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> SKYWATCH</a>
+    <nav class="primary">
+      <a href="forecast.html">Forecast</a>
+      <a href="map.html">World Map</a>
+      <a href="aircraft.html">Aircraft Radar</a>
+      <a href="iss.html">ISS Tracker</a>
+      <a href="isro.html">ISRO Missions</a>
+      <a href="launches.html">Launch Countdown</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow reveal in">MODULE 04 / LOW EARTH ORBIT</p>
+      <h1 class="page-title reveal in">ISS TRACKER<span class="ignite">.</span></h1>
+      <p class="page-sub reveal in">The International Space Station orbits Earth every 93 minutes, at roughly 7.66&nbsp;km/s. Here's exactly where it is right now.</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="wrap">
+      <div class="iss-layout">
+
+        <div class="map-frame panel reveal in">
+          <div id="iss-map"></div>
+        </div>
+
+        <div class="iss-telemetry panel reveal in">
+          <h3 class="mono telem-head">LIVE TELEMETRY</h3>
+          <div class="telem-row">
+            <span class="mono telem-label">Latitude</span>
+            <span class="mono telem-val" id="iss-lat">--</span>
+          </div>
+          <div class="telem-row">
+            <span class="mono telem-label">Longitude</span>
+            <span class="mono telem-val" id="iss-lon">--</span>
+          </div>
+          <div class="telem-row">
+            <span class="mono telem-label">Altitude</span>
+            <span class="mono telem-val" id="iss-alt">--</span>
+          </div>
+          <div class="telem-row">
+            <span class="mono telem-label">Velocity</span>
+            <span class="mono telem-val" id="iss-vel">--</span>
+          </div>
+          <div class="telem-row">
+            <span class="mono telem-label">Visibility</span>
+            <span class="mono telem-val" id="iss-vis">--</span>
+          </div>
+          <div class="telem-row">
+            <span class="mono telem-label">Over</span>
+            <span class="mono telem-val" id="iss-over">--</span>
+          </div>
+          <hr class="rule" style="margin:1.2rem 0;">
+          <span class="mono telem-foot" id="iss-updated">Awaiting telemetry…</span>
+        </div>
+
+      </div>
+      <p class="map-hint mono">POSITION REFRESHES EVERY 5 SECONDS · SOURCE: WHERETHEISS.AT</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>The station, by the numbers</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-card reveal">
+          <span class="mono info-index">93 MIN</span>
+          <h3>Orbital Period</h3>
+          <p>The ISS circles the planet roughly every 93 minutes — about 16 orbits a day.</p>
+        </div>
+        <div class="info-card reveal">
+          <span class="mono info-index">400 KM</span>
+          <h3>Average Altitude</h3>
+          <p>It orbits in low Earth orbit, low enough that atmospheric drag requires periodic reboosts.</p>
+        </div>
+        <div class="info-card reveal">
+          <span class="mono info-index">1998</span>
+          <h3>First Module Launched</h3>
+          <p>Zarya, the station's first module, launched in November 1998 — construction has continued ever since.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight crosslink">
+    <div class="wrap crosslink-inner reveal">
+      <div>
+        <p class="eyebrow">BEFORE THE STATION</p>
+        <h3>See what got humanity to orbit in the first place.</h3>
+      </div>
+      <a href="isro.html" class="btn">View ISRO Timeline →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;"><span class="dot"></span> SKYWATCH</div>
+        <p style="color:var(--ink-dim); font-size:0.85rem; max-width:30ch;">
+          A live tracking dashboard for everything moving through the sky.
+        </p>
+      </div>
+      <div>
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="forecast.html">7-Day Forecast</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="aircraft.html">Aircraft Radar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Space</h5>
+        <ul>
+          <li><a href="iss.html">ISS Tracker</a></li>
+          <li><a href="isro.html">ISRO Missions</a></li>
+          <li><a href="launches.html">Launch Countdown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>System</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><span class="mono" style="color:var(--ink-dim);">Orbit data: WhereTheISS.at</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SKYWATCH</span>
+      <span class="mono">ISS DATA: WHERETHEISS.AT</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/iss.js"></script>
+</body>
+</html>

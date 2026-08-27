@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forecast — SkyWatch</title>
+<meta name="description" content="Real 7-day weather forecasts with live icons and hourly charts, for any city on Earth.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/forecast.css">
+</head>
+<body>
+
+<div id="hud">
+  <div class="wrap">
+    <div class="hud-group">
+      <span class="hud-item"><span class="dot"></span> SYSTEM NOMINAL</span>
+      <span class="hud-item mono" id="hud-page">FORECAST</span>
+    </div>
+    <div class="hud-group secondary">
+      <span class="hud-item mono" id="hud-day">T+0</span>
+      <span class="hud-item mono" id="hud-utc">00:00:00 UTC</span>
+      <span class="hud-item mono" id="hud-local">00:00:00 LOCAL</span>
+    </div>
+  </div>
+</div>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="dot"></span> SKYWATCH</a>
+    <nav class="primary">
+      <a href="forecast.html">Forecast</a>
+      <a href="map.html">World Map</a>
+      <a href="aircraft.html">Aircraft Radar</a>
+      <a href="iss.html">ISS Tracker</a>
+      <a href="isro.html">ISRO Missions</a>
+      <a href="launches.html">Launch Countdown</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow reveal in">MODULE 01 / ATMOSPHERE</p>
+      <h1 class="page-title reveal in">FORECAST<span class="ignite">.</span></h1>
+      <p class="page-sub reveal in">Live conditions and a real 7-day outlook for anywhere on Earth.</p>
+
+      <form id="city-form" class="city-form reveal in">
+        <input type="text" id="city-input" placeholder="Search a city — try “Tokyo” or “Pune”" autocomplete="off">
+        <button type="submit" class="btn btn--solid">Search</button>
+        <button type="button" id="locate-btn" class="btn">Use My Location</button>
+      </form>
+      <div id="search-suggestions" class="suggestions"></div>
+      <p id="loc-status" class="mono loc-status"></p>
+    </div>
+  </section>
+
+  <!-- CURRENT CONDITIONS -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="current-panel panel reveal">
+        <div class="current-main">
+          <span class="mono current-place" id="cur-place">Loading…</span>
+          <div class="current-temp-row">
+            <span id="cur-icon" class="current-icon"></span>
+            <span class="current-temp mono" id="cur-temp">--°</span>
+          </div>
+          <span class="current-desc" id="cur-desc">—</span>
+        </div>
+        <div class="current-stats">
+          <div class="current-stat">
+            <span class="mono stat-label">Feels Like</span>
+            <span class="mono stat-val" id="cur-feels">--°</span>
+          </div>
+          <div class="current-stat">
+            <span class="mono stat-label">Humidity</span>
+            <span class="mono stat-val" id="cur-humidity">--%</span>
+          </div>
+          <div class="current-stat">
+            <span class="mono stat-label">Wind</span>
+            <span class="mono stat-val" id="cur-wind">-- km/h</span>
+          </div>
+          <div class="current-stat">
+            <span class="mono stat-label">Precip. Chance</span>
+            <span class="mono stat-val" id="cur-precip">--%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 DAY CARDS -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>7-Day Outlook</h2>
+        <p>Daily highs, lows, and conditions — straight from live observational models.</p>
+      </div>
+      <div id="forecast-cards" class="forecast-cards">
+        <!-- JS injects 7 day cards here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURLY CHART -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>48-Hour Trend</h2>
+        <p>Temperature and precipitation probability, hour by hour.</p>
+      </div>
+      <div class="chart-panel panel reveal">
+        <canvas id="hourly-chart" height="110"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS LINK -->
+  <section class="section section--tight crosslink">
+    <div class="wrap crosslink-inner reveal">
+      <div>
+        <p class="eyebrow">SEE IT ON THE MAP</p>
+        <h3>This city, on the globe.</h3>
+      </div>
+      <a href="map.html" class="btn">Open World Map →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:1rem;"><span class="dot"></span> SKYWATCH</div>
+        <p style="color:var(--ink-dim); font-size:0.85rem; max-width:30ch;">
+          A live tracking dashboard for everything moving through the sky.
+        </p>
+      </div>
+      <div>
+        <h5>Modules</h5>
+        <ul>
+          <li><a href="forecast.html">7-Day Forecast</a></li>
+          <li><a href="map.html">World Map</a></li>
+          <li><a href="aircraft.html">Aircraft Radar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Space</h5>
+        <ul>
+          <li><a href="iss.html">ISS Tracker</a></li>
+          <li><a href="isro.html">ISRO Missions</a></li>
+          <li><a href="launches.html">Launch Countdown</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>System</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><span class="mono" style="color:var(--ink-dim);">Data: Open-Meteo</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SKYWATCH</span>
+      <span class="mono">WEATHER DATA: OPEN-METEO.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/forecast.js"></script>
+</body>
+</html>
